@@ -1,4 +1,6 @@
 import '@/styles/globals.css'
+import { Provider } from 'react-redux'
+import { store } from '@/stores/store'
 import { Layouts } from '@/components/common/layout'
 import { useRouter } from 'next/router'
 import { Noto_Sans_Thai } from 'next/font/google'
@@ -13,16 +15,12 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
             <Head>
                 <title>BBDashboard</title>
             </Head>
-            <div>
-                {router.pathname !== '/' ? (
-                    <Layouts>
+            <Provider store={store}>
+                <Layouts>
 
-                        <Component {...pageProps} />
-                    </Layouts>
-                ) : (
                     <Component {...pageProps} />
-                )}
-            </div>
+                </Layouts>
+            </Provider>
         </main>
     )
 }
