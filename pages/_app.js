@@ -17,7 +17,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
             </Head>
             <Provider store={store}>
                 <Layouts>
-
                     <Component {...pageProps} />
                 </Layouts>
             </Provider>
